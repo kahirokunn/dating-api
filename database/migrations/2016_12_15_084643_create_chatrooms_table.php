@@ -15,6 +15,7 @@ class CreateChatroomsTable extends Migration
     {
         Schema::create('chatrooms', function (Blueprint $table) {
             $table->increments('id');
+            $table->boolean('is_deleted')->default(0)->nullable();
             $table->timestamps();
         });
     }

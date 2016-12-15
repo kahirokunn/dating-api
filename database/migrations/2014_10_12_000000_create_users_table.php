@@ -18,10 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name')->unique();
             $table->string('email')->unique();
             $table->string('password');
-            $table->unsignedBigInteger('facebook_id')->unique();
-            $table->unsignedBigInteger('twitter_id')->unique();
-            $table->unsignedBigInteger('instagram_id')->unique();
-            $table->unsignedBigInteger('tumblr_id')->unique();
+            $table->unsignedBigInteger('facebook_id')->unique()->nullable();
+            $table->unsignedBigInteger('twitter_id')->unique()->nullable();
+            $table->unsignedBigInteger('instagram_id')->unique()->nullable();
+            $table->unsignedBigInteger('tumblr_id')->unique()->nullable();
+            $table->boolean('is_deleted')->default(0)->nullable();
             $table->timestamps();
         });
     }
