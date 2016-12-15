@@ -27,9 +27,7 @@ class CreateProfileDetailsTable extends Migration
             $table->string('cigarettes')->nullable();
             $table->timestamps();
 
-            // usersテーブルのレコードが削除されたら
-            // 削除されたレコードに関係するレコードを一緒に削除する
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
