@@ -15,7 +15,7 @@ class CreateProfileDetailsTable extends Migration
     {
         Schema::create('profile_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('height')->nullable();
             $table->string('body_type')->nullable();
             $table->string('blood_type')->nullable();
