@@ -17,10 +17,8 @@ class CreateUserChatroomTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('chatroom_id')->nullable();
 
-            // users,chatroomsテーブルのレコードが削除されたら
-            // 削除されたレコードに関係するレコードを一緒に削除する
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('chatroom_id')->references('id')->on('chatrooms')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('chatroom_id')->references('id')->on('chatrooms');
         });
     }
 
