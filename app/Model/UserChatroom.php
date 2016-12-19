@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserChatroom extends Model
 {
-    protected $table = "user_chatroom";
+    protected $table = 'user_chatroom';
 }
