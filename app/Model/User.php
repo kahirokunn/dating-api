@@ -9,40 +9,45 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = "users";
+    protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    // 更新可能な値
     protected $fillable = [
         'name', 'email', 'password',
     ];
 
+    // 取得可能な値
     protected $visible = [
-        'id','name','email',
+        'id', 'name', 'email', 'is_deleted',
     ];
 
-    protected $table = "users";
+    // 型キャスト
+    protected $casts = [
+        'is_deleted' => 'boolean',
+    ];
 
     public function profile()
     {
        return $this->hasOne('App\Model\Profile');
     }
 
-    public function message()
+    public function profileDetail()
     {
-       return $this->hasMany('App\Model\ChatroomMessage');
+        return $this->hasOne('App\Model\ProfileDetail');
     }
 
-    public function chatroom()
+    public function chatrooms()
     {
        return $this->belongsToMany('App\Model\Chatroom');
     }
 
-    public function appointment()
+    public function follows()
     {
-       return $this->belongsToMany('App\Model\Appointment');
+       return $this->hasMany('App\Model\Follow');
+    }
+
+    public function followers()
+    {
+       return $this->hasMany('App\Model\Follow', 'follow_user_id');
     }
 }
