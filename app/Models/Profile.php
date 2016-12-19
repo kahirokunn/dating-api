@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,6 @@ class Profile extends Model
 
     protected function user()
     {
-        return $this->belongsTo('App\Model\User');
+        return $this->belongsTo('App\Models\User');
     }
 }

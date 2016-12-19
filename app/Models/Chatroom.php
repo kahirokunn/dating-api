@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,11 @@ class Chatroom extends Model
 
     protected function messages()
     {
-        return $this->hasMany('App\Model\ChatroomMessage');
+        return $this->hasMany('App\Models\ChatroomMessage');
     }
 
     protected function users()
     {
-        return $this->hasMany('App\Model\User');
+        return $this->hasMany('App\Models\User');
     }
 }

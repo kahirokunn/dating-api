@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -28,26 +28,26 @@ class User extends Authenticatable
 
     public function profile()
     {
-       return $this->hasOne('App\Model\Profile');
+       return $this->hasOne('App\Models\Profile');
     }
 
     public function profileDetail()
     {
-        return $this->hasOne('App\Model\ProfileDetail');
+        return $this->hasOne('App\Models\ProfileDetail');
     }
 
     public function chatrooms()
     {
-       return $this->belongsToMany('App\Model\Chatroom');
+       return $this->belongsToMany('App\Models\Chatroom');
     }
 
     public function follows()
     {
-       return $this->hasMany('App\Model\Follow');
+       return $this->hasMany('App\Models\Follow');
     }
 
     public function followers()
     {
-       return $this->hasMany('App\Model\Follow', 'follow_user_id');
+       return $this->hasMany('App\Models\Follow', 'follow_user_id');
     }
 }
