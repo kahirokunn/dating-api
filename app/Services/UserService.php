@@ -68,22 +68,22 @@ final class UserService
         return User::select($field)->where("email", "=", $email)->first();
     }
 
-    private function getByFacebookId($facebook_id, array $field = ['*']) : array
+    private function getByFacebookId(int $facebook_id, array $field = ['*']) : array
     {
         return User::select($field)->where("facebook_id", "=", $facebook_id)->first();
     }
 
-    private function getByTwitterId($twitter_id, array $field = ['*']) : array
+    private function getByTwitterId(int $twitter_id, array $field = ['*']) : array
     {
         return User::select($field)->where("twitter_id", "=", $twitter_id)->first();
     }
 
-    private function getByInstagramId($instagram_id, array $field = ['*']) : array
+    private function getByInstagramId(int $instagram_id, array $field = ['*']) : array
     {
         return User::select($field)->where("twitter_id", "=", $instagram_id)->first();
     }
 
-    private function getByTumblrId($tumblr_id, array $field = ['*']) : array
+    private function getByTumblrId(int $tumblr_id, array $field = ['*']) : array
     {
         return User::select($field)->where("twitter_id", "=", $tumblr_id)->first();
     }
