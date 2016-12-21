@@ -11,14 +11,11 @@ class User extends Authenticatable
 
     protected $table = 'users';
 
-    // 更新可能な値
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    // 更新不可能な値
+    protected $guarded = ['id'];
 
-    // 取得可能な値
-    protected $visible = [
-        'id', 'name', 'email', 'is_deleted',
+    protected $hidden = [
+        'password',
     ];
 
     // 型キャスト
@@ -28,7 +25,7 @@ class User extends Authenticatable
 
     public function profile()
     {
-       return $this->hasOne('App\Models\Profile');
+        return $this->hasOne('App\Models\Profile');
     }
 
     public function profileDetail()
@@ -38,16 +35,16 @@ class User extends Authenticatable
 
     public function chatrooms()
     {
-       return $this->belongsToMany('App\Models\Chatroom');
+        return $this->belongsToMany('App\Models\Chatroom');
     }
 
     public function follows()
     {
-       return $this->hasMany('App\Models\Follow');
+        return $this->hasMany('App\Models\Follow');
     }
 
     public function followers()
     {
-       return $this->hasMany('App\Models\Follow', 'follow_user_id');
+        return $this->hasMany('App\Models\Follow', 'follow_user_id');
     }
 }
